@@ -3,36 +3,6 @@ import CustomErrorHandler from "../services/CustomErrorHandler.js";
 import bcrypt from 'bcrypt';
 
 
-export const createUser = async (req, res) => {
-    const { name, email } = req.body;
-
-    const user = await prisma.user.findUnique({
-        where: {
-            email: email
-        }
-    })
-
-    if (user) {
-        return res.json({
-            status: 400,
-            message: "Email already taken, Use another email."
-        });
-    }
-
-    const newUser = await prisma.user.create({
-        data: {
-            name,
-            email
-        }
-    })
-
-    return res.json({
-        status: 200,
-        data: newUser,
-        message: "user created successfully"
-    })
-}
-
 export const listAllUsers = async (req, res) => {
     let users;
     try {
