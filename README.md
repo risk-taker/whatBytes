@@ -5,7 +5,7 @@
 #### 1st step
 
 ```bash
-git clone url
+git clone https://github.com/risk-taker/whatBytes.git
 ```
 
 ### 2nd step: step the database url in .env file
